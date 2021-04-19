@@ -13,11 +13,10 @@ Horn.prototype.render = function (){
     option.textContent=this.keyword;
     option.setAttribute('id',this.keyword);
     $('select').append(option);
-   
     let hornClone = $('#photo-template').clone();
     $('main').append(hornClone);
-    hornClone.find('h2').text(this.title);
     hornClone.find('img').attr('src', this.image_url);
+    hornClone.find('h2').text(this.title);
     hornClone.find('p').text(this.description);
     hornClone.attr('id', this.title);
   };

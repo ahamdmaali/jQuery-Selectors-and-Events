@@ -1,32 +1,42 @@
 @import url('https://fonts.googleapis.com/css?family=Abel|Oswald:700|Yellowtail|Patrick+Hand');
-img{
+main div img{
     border-radius: 10px;
 width: 250px;
 height: 250px;
+border: darkmagenta;
+    border-radius: 100px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 
+ 
 }
 select{
     width: 200px;
     height: 40px;
     background-color: yellow;
 }
-title{
+h1{
+    background-color: navy;
     text-align: center;
+    height: 50px;
+    line-height: 50px;
+    color: oldlace;
+    font-family: Oswald;
 }
-  h3 {
-    padding-left: 100px;
-    font-size: 1.6em;
-    padding-bottom: 10px;
-    color: #555;
+  h2 {
+    height: 50px;
+    line-height: 50px;
+    color: navy;
+    font-family: Oswald;
+   
   }
 
-  aside p {
-    padding-left: 100px;
-    width: 65%;
-    margin: 0;
-    text-indent: 0;
+  /* p {
+    /* float: left;
+    width: 33.33%;
+    padding: 5px; */
 
-  }
+  /* } */ 
 
   aside button {
     float: right;
