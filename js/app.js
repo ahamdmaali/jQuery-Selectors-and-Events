@@ -1,6 +1,7 @@
 'use stricr'
 
 let hornArr=[];
+let hornOptions=[];
 function Horn(horn){
     this.image_url=horn.image_url;
     this.title=horn.title;
@@ -12,18 +13,21 @@ function Horn(horn){
 
 Horn.prototype.render = function (){
     let hornClone = $('.photo-template').clone();
-    let option=document.createElement('option');
-    option.textContent=this.keyword;
-    option.setAttribute('class',this.keyword);
-   $('select').append(option);
-   
+    
+     if(!hornOptions.includes(this.keyword)){
+        hornOptions.push(this.keyword)
+        let option=document.createElement('option');
+        option.textContent=this.keyword;
+        option.setAttribute('class',this.keyword);
+        $('select').append(option)
+       } 
     hornClone.find('img').attr('src', this.image_url);
     hornClone.find('h2').text(this.title);
     hornClone.find('p').text(this.description);
     hornClone.attr('class', this.keyword);
     $('main').append(hornClone);
   };
- 
+
 Horn.readJson=()=>{
 const ajaxsettings= {
     method:'get',
@@ -46,4 +50,5 @@ $('select').on('change',function(event){
   
 })
 
+console.log(hornOptions)
 $(()=>Horn.readJson());
