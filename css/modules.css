@@ -13,9 +13,9 @@ border: darkmagenta;
     
  
 }
-.photo-template{
+/* #photo-template{
   display: none;
-}
+} */
 select{
     width: 200px;
     height: 40px;
@@ -67,3 +67,4 @@ h1{
     text-align: center;
     color: #aaa;
   }
+  
