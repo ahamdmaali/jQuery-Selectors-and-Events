@@ -4,9 +4,13 @@
     <title>The Gallery of Horns</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <script id="hornoption" type="text/x-tmpl-mustache">
+      <option value='{{keyword}}'>{{keyword}}</option>
+    </script>
+    
     <script id="horntembleting" type="text/x-tmpl-mustache">
-      <option >{{keyword}}</option>
-       <div>
+      
+       <div class="{{keyword}}">
         <img src="{{image_url}}" alt="">
         <h2>{{title}}</h2>
         <p>{{description}}</p>
@@ -16,19 +20,14 @@
   <body>
     <header>
       <h1>The Gallery of Horns</h1>
-      <select>
+      <select >
         <option value="default">Filter by Keyword</option>
       </select>
       <button id="page1">page1</button>
       <button id="page2">page2</button>
     </header>
-    <main>
-      <div id="photo-template">
-      
-        <img src="" alt="">
-        <h2></h2>
-        <p></p>
-      </div>
+    <main class="photo-template">
+  
     </main>
     <footer>
       © 2018 Code Fellows

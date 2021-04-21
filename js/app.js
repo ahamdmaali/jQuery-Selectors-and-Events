@@ -7,26 +7,28 @@ function Horn(horn){
     this.title=horn.title;
     this.description=horn.description;
     this.keyword=horn.keyword;
-    this.horns=horn.horns;
-    
+    this.horns=horn.horns; 
 };
-
+let template = $('#horntembleting').html();
+// let templatelist1 = $('#hornoption1').html();
+let templatelist = $('#hornoption').html();
 Horn.prototype.renderHorn = function (){
-    // let hornClone = $('.photo-template').clone();
-    
-     
-    let template = $('#horntembleting').html();
-    let hornMergedTemplate = Mustache.render(template,this);
-   
-    $('#photo-template').append(hornMergedTemplate);
-    let hornOption=Mustache.render(template,this);
-    
-    if(!hornOptions.includes(this.keyword)){
+  let hornMergedTemplate = Mustache.render(template,this);
+    $('.photo-template').append(hornMergedTemplate);
+
+     if(!hornOptions.includes(this.keyword)){
         hornOptions.push(this.keyword);
+        let hornOption=Mustache.render(templatelist,this);
         $('select').append(hornOption);
-       } 
+       }   
   };
 
+$('select').on('change',function(event){
+    event.preventDefault();
+   let select=$('select').children('option:selected').val();
+   $('div').addClass('hide')
+   $(`.${select}`).removeClass('hide');
+})
 Horn.readJson1=()=>{
 const ajaxsettings= {
     method:'get',
@@ -38,17 +40,12 @@ $.ajax('./data/page-1.json',ajaxsettings)
     data.forEach(item => {
         let horn = new Horn(item);
         horn.renderHorn(); 
+       
     });
+    
 });
-};
-$('select').on('change',function(event){
-    event.preventDefault();
-   let select=$(this).children('option:selected').val();
-   $('main').children().addClass('hide');
-   $(`.${select}`).removeClass('hide')
-  
-})
 
+};
 Horn.readJson2=()=>{
     const ajaxsettings= {
         method:'get',
@@ -59,28 +56,32 @@ Horn.readJson2=()=>{
     .then(data=>{
         data.forEach(item => {
             let horn = new Horn(item);
-            horn.renderHorn(); 
+             horn.renderHorn(); 
+             
         });
+        
     });
     };
-    $('select').on('change',function(event){
-        event.preventDefault();
-       let select=$(this).children('option:selected').val();
-       $('main').children().addClass('hide');
-       $(`.${select}`).removeClass('hide')
-      
-    })
+
+
 
  $(()=>Horn.readJson1());
 
-$('#page1').on('click',function (e) {
+  $('#page1').on('click', function (e){
     e.preventDefault();
-    $(()=>Horn.readJson1());
-})
-$('#page2').on('click',function (e) {
+    $('.photo-template').children().remove();
    
+    $('option').next().remove();
+     hornOptions=[];
+    $(()=>Horn.readJson1());
+    
+  });
+  $('#page2').on('click', function (e){
     e.preventDefault();
+    $('.photo-template').children().remove();
+   
+    $('option').next().remove();
     $(()=>Horn.readJson2());
-    $('main').children().addClass('hide');
-    $(`.${select}`).removeClass('hide')
-})
+    $('#page2').on('click')
+  });
+
