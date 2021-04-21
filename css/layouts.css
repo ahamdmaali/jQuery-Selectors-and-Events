@@ -8,5 +8,9 @@ nav, article, aside, footer section {
     margin-left: 20%;
     display: flex;
    flex-wrap: wrap;
+   grid-column:span;
+
   }
-  
+  .hide{
+    display: none;
+  }

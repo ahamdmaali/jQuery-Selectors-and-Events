@@ -1,8 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Abel|Oswald:700|Yellowtail|Patrick+Hand');
-.hide{
-  display: none;
-  
-}
 img{
     border-radius: 10px;
 width: 250px;
@@ -13,9 +9,7 @@ border: darkmagenta;
     
  
 }
-.photo-template{
-  display: none;
-}
+
 select{
     width: 200px;
     height: 40px;
@@ -67,3 +61,4 @@ h1{
     text-align: center;
     color: #aaa;
   }
+  
